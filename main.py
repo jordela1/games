@@ -1,11 +1,13 @@
-from utils.common import said_yes
+from utils.common import(
+    said_yes,
+    menu_maker
+)
 from number_guesser.number_guesser import main as start_number_guesser
 
 def main():
     while True:
         print("\033c")
-        print("============Jordela's Games Main Menu============")
-        print("=================================================")
+        menu_maker("Jordela's Games Main Menu", "Welcome to the main menu, select a game based on the number below and have fun!")
         print(f"Game List:")
 
         games_list = get_games_list()

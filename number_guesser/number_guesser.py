@@ -1,26 +1,17 @@
 import random
 import sys
 import os
-
-# Adding the top level module directory for
-current_dir = os.path.dirname(os.path.abspath(__file__))
-relative_dir = "../"
-package_path = os.path.join(current_dir, relative_dir)
-sys.path.insert(0, package_path)
-
-
-from utils.common import said_yes
+from utils.common import(
+   said_yes,
+   menu_maker
+)
 
 # Jordela1's number guesser
 # The goal of the game is to correctly the guess the number in the least number of guesses
-
-
 def main():
-    print("============Jordela1's Number Guesser============")
-    print("Goal is to correctly guess the randomly generated number in the lowest amount of guesses\n")
+    menu_maker("Jordela1's Number Guesser","Goal is to correctly guess the randomly generated number in the lowest amount of guesses")
 
     retry = bool(True)
-
     while retry:
         number_guesser()
         retry = said_yes("Go again")
