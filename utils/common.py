@@ -1,5 +1,8 @@
+import random
 # common python utilities
 
+# Will take the provided question, and return if the response was yes as True
+# or no as False, then have the user retry if the response was invalid
 def said_yes( question: str ) -> bool:
     
     while True:
@@ -11,6 +14,11 @@ def said_yes( question: str ) -> bool:
         else:
             print("Incorrect response, please enter 'yes/y' or 'no/n'")
 
+
+# Will create menus in the below format
+# ====================Menu Title====================
+# This is the menu body
+# ==================================================
 def menu_maker(menu_title: str, menu_desc: str):
     max_menu_len = 50
     menu_title_len = len(menu_title)
@@ -55,7 +63,21 @@ def menu_maker(menu_title: str, menu_desc: str):
         print (menu_desc_line)
     print (menu_bottom_line)
             
+def get_word(min_len: int = 0, max_len: int = 999) -> str:
+    word = "foo"
+    words = []
+    with open("./utils/words.txt") as file:
+        for line in file:
+            line = line.strip()
+            words.append(line)
 
+    print(min_len)
+    print(max_len)
+    while True:
+        random_num = random.randint(1,len(words))
+        word = words[random_num]
+        word_len = len(word)
+        if word_len >= min_len and word_len <= max_len:
+            break
 
-
-
+    return word
